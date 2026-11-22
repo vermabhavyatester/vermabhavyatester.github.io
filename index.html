@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bhavy Verma | Software Tester Portfolio</title>
+  <meta name="description" content="Portfolio of Bhavy Verma — 17-year-old Software Tester showcasing bug reports, test cases, and testing skills." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #070b14;
+      --bg-card: #0f1629;
+      --bg-soft: #151e33;
+      --border: #1e2a45;
+      --text: #f0f6ff;
+      --text-muted: #8b9cb8;
+      --accent: #22d3ee;
+      --accent-2: #818cf8;
+      --accent-3: #34d399;
+      --success: #34d399;
+      --warning: #fbbf24;
+      --danger: #f87171;
+      --high: #fb923c;
+      --radius: 16px;
+      --shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    /* Rich gradient background */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 50% at 20% -10%, rgba(34, 211, 238, 0.18), transparent),
+        radial-gradient(ellipse 60% 40% at 90% 10%, rgba(129, 140, 248, 0.15), transparent),
+        radial-gradient(ellipse 50% 30% at 50% 100%, rgba(52, 211, 153, 0.08), transparent);
+      pointer-events: none;
+      z-index: -2;
+    }
+
+    /* Subtle grid */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(34, 211, 238, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(34, 211, 238, 0.04) 1px, transparent 1px);
+      background-size: 56px 56px;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      width: min(1120px, 92%);
+      margin: 0 auto;
+    }
+
+    /* NAV */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(7, 11, 20, 0.8);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(30, 42, 69, 0.8);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 0;
+    }
+
+    .logo {
+      font-weight: 800;
+      font-size: 1.2rem;
+      letter-spacing: -0.03em;
+      color: var(--text);
+    }
+
+    .logo span {
+      background: linear-gradient(135deg, #22d3ee, #818cf8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.8rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--text);
+      font-size: 1.6rem;
+      cursor: pointer;
+    }
+
+    /* HERO */
+    .hero {
+      padding: 6rem 0 5rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      background: linear-gradient(135deg, rgba(34, 211, 238, 0.15), rgba(129, 140, 248, 0.12));
+      color: var(--accent);
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 0.4rem 1rem;
+      border-radius: 999px;
+      margin-bottom: 1.4rem;
+      border: 1px solid rgba(34, 211, 238, 0.3);
+      box-shadow: 0 0 20px rgba(34, 211, 238, 0.1);
+    }
+
+    .badge span {
+      color: #34d399;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+
+    .hero h1 {
+      font-size: clamp(2.6rem, 6.5vw, 4rem);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 1.12;
+      margin-bottom: 0.9rem;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(135deg, #22d3ee 0%, #818cf8 50%, #34d399 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-sub {
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      max-width: 540px;
+      margin: 0 auto 2.2rem;
+      line-height: 1.6;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.85rem 1.7rem;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: all 0.25s ease;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #22d3ee, #06b6d4);
+      color: #041016;
+      box-shadow: 0 6px 25px rgba(34, 211, 238, 0.35);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 35px rgba(34, 211, 238, 0.45);
+      text-decoration: none;
+    }
+
+    .btn-secondary {
+      background: linear-gradient(135deg, #818cf8, #6366f1);
+      color: white;
+      box-shadow: 0 6px 25px rgba(129, 140, 248, 0.3);
+    }
+
+    .btn-secondary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 35px rgba(129, 140, 248, 0.4);
+      text-decoration: none;
+    }
+
+    .btn-ghost {
+      background: rgba(15, 22, 41, 0.6);
+      color: var(--text);
+      border: 1px solid var(--border);
+      backdrop-filter: blur(8px);
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: rgba(34, 211, 238, 0.08);
+      text-decoration: none;
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 5rem 0;
+    }
+
+    .section-title {
+      font-size: 1.9rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-title span {
+      background: linear-gradient(135deg, #22d3ee, #818cf8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .section-desc {
+      color: var(--text-muted);
+      margin-bottom: 2.8rem;
+      max-width: 520px;
+      font-size: 1.05rem;
+    }
+
+    /* ABOUT */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .about-card {
+      background: linear-gradient(145deg, rgba(15, 22, 41, 0.9), rgba(21, 30, 51, 0.7));
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem;
+      box-shadow: var(--shadow);
+    }
+
+    .about-card p {
+      color: var(--text-muted);
+      margin-bottom: 1.1rem;
+      font-size: 1.02rem;
+    }
+
+    .about-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .stat {
+      background: linear-gradient(145deg, rgba(15, 22, 41, 0.95), rgba(21, 30, 51, 0.8));
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.4rem 1rem;
+      text-align: center;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .stat:hover {
+      transform: translateY(-4px);
+      border-color: rgba(34, 211, 238, 0.4);
+    }
+
+    .stat-num {
+      font-size: 1.9rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #22d3ee, #818cf8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.2;
+    }
+
+    .stat-label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 0.3rem;
+      font-weight: 500;
+    }
+
+    /* SKILLS */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+      gap: 0.9rem;
+    }
+
+    .skill {
+      background: linear-gradient(145deg, rgba(15, 22, 41, 0.9), rgba(21, 30, 51, 0.6));
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1rem 1.15rem;
+      font-size: 0.92rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      transition: all 0.25s ease;
+    }
+
+    .skill:hover {
+      border-color: rgba(34, 211, 238, 0.5);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(34, 211, 238, 0.1);
+    }
+
+    .skill-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #22d3ee, #818cf8);
+      flex-shrink: 0;
+      box-shadow: 0 0 10px rgba(34, 211, 238, 0.5);
+    }
+
+    /* BUG REPORTS */
+    .bug-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.6rem;
+    }
+
+    .bug-card {
+      background: linear-gradient(145deg, rgba(15, 22, 41, 0.95), rgba(21, 30, 51, 0.7));
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: border-color 0.25s;
+    }
+
+    .bug-card:hover {
+      border-color: rgba(34, 211, 238, 0.35);
+    }
+
+    .bug-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.8rem;
+      padding: 1.3rem 1.6rem;
+      background: linear-gradient(90deg, rgba(34, 211, 238, 0.08), rgba(129, 140, 248, 0.06));
+      border-bottom: 1px solid var(--border);
+    }
+
+    .bug-id {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      color: var(--accent);
+      background: rgba(34, 211, 238, 0.12);
+      padding: 0.25rem 0.7rem;
+      border-radius: 7px;
+      border: 1px solid rgba(34, 211, 238, 0.25);
+    }
+
+    .bug-title {
+      font-weight: 600;
+      flex: 1;
+      min-width: 200px;
+      font-size: 1.02rem;
+    }
+
+    .severity {
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 0.3rem 0.7rem;
+      border-radius: 7px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .sev-high {
+      background: rgba(251, 146, 60, 0.18);
+      color: #fb923c;
+      border: 1px solid rgba(251, 146, 60, 0.3);
+    }
+
+    .sev-medium {
+      background: rgba(251, 191, 36, 0.15);
+      color: #fbbf24;
+      border: 1px solid rgba(251, 191, 36, 0.3);
+    }
+
+    .sev-critical {
+      background: rgba(248, 113, 113, 0.15);
+      color: #f87171;
+      border: 1px solid rgba(248, 113, 113, 0.3);
+    }
+
+    .bug-body {
+      padding: 1.6rem;
+    }
+
+    .bug-meta {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1.1rem;
+      margin-bottom: 1.3rem;
+      font-size: 0.9rem;
+    }
+
+    .bug-meta dt {
+      color: var(--text-muted);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.2rem;
+      font-weight: 600;
+    }
+
+    .bug-meta dd {
+      font-weight: 500;
+    }
+
+    .steps {
+      background: rgba(7, 11, 20, 0.6);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.2rem 1.4rem;
+      margin: 1.1rem 0;
+      font-size: 0.92rem;
+    }
+
+    .steps strong {
+      color: var(--accent);
+      display: block;
+      margin-bottom: 0.6rem;
+    }
+
+    .steps ol {
+      margin-left: 1.25rem;
+    }
+
+    .steps li {
+      margin-bottom: 0.4rem;
+    }
+
+    .steps code {
+      background: rgba(34, 211, 238, 0.12);
+      padding: 0.15rem 0.4rem;
+      border-radius: 5px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85em;
+      color: var(--accent);
+    }
+
+    .result-box {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-top: 1.1rem;
+    }
+
+    .result {
+      border-radius: 12px;
+      padding: 1.1rem;
+      font-size: 0.9rem;
+    }
+
+    .expected {
+      background: rgba(52, 211, 153, 0.08);
+      border: 1px solid rgba(52, 211, 153, 0.28);
+    }
+
+    .actual {
+      background: rgba(248, 113, 113, 0.08);
+      border: 1px solid rgba(248, 113, 113, 0.28);
+    }
+
+    .result strong {
+      display: block;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.4rem;
+      opacity: 0.9;
+    }
+
+    .expected strong { color: #34d399; }
+    .actual strong { color: #f87171; }
+
+    /* TEST CASES */
+    .tc-table-wrap {
+      overflow-x: auto;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      background: linear-gradient(145deg, rgba(15, 22, 41, 0.95), rgba(21, 30, 51, 0.7));
+    }
+
+    th {
+      background: linear-gradient(90deg, rgba(34, 211, 238, 0.1), rgba(129, 140, 248, 0.08));
+      text-align: left;
+      padding: 1rem 1.15rem;
+      font-weight: 700;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border);
+    }
+
+    td {
+      padding: 1.05rem 1.15rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    tr:hover td {
+      background: rgba(34, 211, 238, 0.04);
+    }
+
+    .tc-id {
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--accent);
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    .status-pass {
+      color: #34d399;
+      font-weight: 700;
+    }
+
+    .status-fail {
+      color: #f87171;
+      font-weight: 700;
+    }
+
+    /* PROJECTS */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .project-card {
+      background: linear-gradient(145deg, rgba(15, 22, 41, 0.95), rgba(21, 30, 51, 0.7));
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.7rem;
+      transition: all 0.25s ease;
+    }
+
+    .project-card:hover {
+      border-color: rgba(34, 211, 238, 0.45);
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(34, 211, 238, 0.12);
+    }
+
+    .project-card h3 {
+      font-size: 1.15rem;
+      margin-bottom: 0.6rem;
+      font-weight: 700;
+    }
+
+    .project-card p {
+      color: var(--text-muted);
+      font-size: 0.93rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+    }
+
+    .tag {
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 0.25rem 0.65rem;
+      border-radius: 7px;
+      background: linear-gradient(135deg, rgba(34, 211, 238, 0.15), rgba(129, 140, 248, 0.12));
+      color: var(--accent);
+      border: 1px solid rgba(34, 211, 238, 0.2);
+    }
+
+    /* CONTACT */
+    .contact-box {
+      background: linear-gradient(135deg, rgba(34, 211, 238, 0.12), rgba(129, 140, 248, 0.1), rgba(52, 211, 153, 0.08));
+      border: 1px solid rgba(34, 211, 238, 0.25);
+      border-radius: 20px;
+      padding: 3rem 2rem;
+      text-align: center;
+      box-shadow: 0 0 60px rgba(34, 211, 238, 0.08);
+    }
+
+    .contact-box h2 {
+      font-size: 1.9rem;
+      font-weight: 800;
+      margin-bottom: 0.6rem;
+    }
+
+    .contact-box p {
+      color: var(--text-muted);
+      margin-bottom: 1.8rem;
+      font-size: 1.05rem;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2.2rem 0;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.875rem;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .result-box {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding: 4rem 0 3.5rem;
+      }
+
+      .contact-box {
+        padding: 2.2rem 1.4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="container nav-inner">
+      <div class="logo">Bhavy<span>.</span>Verma</div>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#bugs">Bug Reports</a></li>
+        <li><a href="#testcases">Test Cases</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="menu-btn" aria-label="Menu">☰</button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="container">
+      <div class="badge">
+        <span>●</span> Open to Internships & Opportunities
+      </div>
+      <h1>Hi, I'm <span>Bhavy Verma</span></h1>
+      <p class="hero-sub">
+        17-year-old beginner Software Tester who loves finding bugs, writing clear test cases, and making products better for users.
+      </p>
+      <div class="hero-actions">
+        <a href="#bugs" class="btn btn-primary">View Bug Reports</a>
+        <a href="#testcases" class="btn btn-secondary">See Test Cases</a>
+        <a href="#contact" class="btn btn-ghost">Get in Touch</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+      <h2 class="section-title">About <span>Me</span></h2>
+      <p class="section-desc">Passionate about quality and continuous learning.</p>
+      <div class="about-grid">
+        <div class="about-card">
+          <p>
+            I'm a 17-year-old beginner software tester focused on <strong style="color: var(--text);">manual testing</strong>, structured test case design, and clear bug reporting. 
+            I enjoy breaking things (in a good way) to make them better for real users.
+          </p>
+          <p>
+            Even at this early stage, I practice on public websites and sample applications, write detailed defect reports, 
+            and design test cases using techniques like <strong style="color: var(--text);">Equivalence Partitioning</strong> and <strong style="color: var(--text);">Boundary Value Analysis</strong>.
+          </p>
+          <p>
+            I'm currently looking for internships or junior testing opportunities where I can learn from experienced QA teams and grow fast.
+          </p>
+        </div>
+        <div class="stats">
+          <div class="stat">
+            <div class="stat-num">17</div>
+            <div class="stat-label">Years Old</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">30+</div>
+            <div class="stat-label">Bugs Documented</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">50+</div>
+            <div class="stat-label">Test Cases Written</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">100%</div>
+            <div class="stat-label">Eager to Learn</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="container">
+      <h2 class="section-title">Skills & <span>Tools</span></h2>
+      <p class="section-desc">What I currently use and practice as a beginner.</p>
+      <div class="skills-grid">
+        <div class="skill"><span class="skill-dot"></span> Manual Testing</div>
+        <div class="skill"><span class="skill-dot"></span> Test Case Design</div>
+        <div class="skill"><span class="skill-dot"></span> Bug Reporting</div>
+        <div class="skill"><span class="skill-dot"></span> Equivalence Partitioning</div>
+        <div class="skill"><span class="skill-dot"></span> Boundary Value Analysis</div>
+        <div class="skill"><span class="skill-dot"></span> Exploratory Testing</div>
+        <div class="skill"><span class="skill-dot"></span> Regression Testing</div>
+        <div class="skill"><span class="skill-dot"></span> Smoke / Sanity Testing</div>
+        <div class="skill"><span class="skill-dot"></span> Browser DevTools</div>
+        <div class="skill"><span class="skill-dot"></span> Jira (Basics)</div>
+        <div class="skill"><span class="skill-dot"></span> Postman (Basics)</div>
+        <div class="skill"><span class="skill-dot"></span> Google Sheets / Excel</div>
+        <div class="skill"><span class="skill-dot"></span> HTML / CSS understanding</div>
+        <div class="skill"><span class="skill-dot"></span> Cross-browser Testing</div>
+        <div class="skill"><span class="skill-dot"></span> Mobile Responsive Checks</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BUG REPORTS -->
+  <section id="bugs">
+    <div class="container">
+      <h2 class="section-title">Bug <span>Reports</span></h2>
+      <p class="section-desc">
+        Sample defect reports written in a professional format. 
+        Replace these with your real findings later.
+      </p>
+
+      <div class="bug-list">
+        <!-- Bug 1 -->
+        <article class="bug-card">
+          <div class="bug-header">
+            <span class="bug-id">BUG-001</span>
+            <h3 class="bug-title">Cart: Quantity field accepts negative values and reduces order total</h3>
+            <span class="severity sev-high">High</span>
+          </div>
+          <div class="bug-body">
+            <dl class="bug-meta">
+              <div>
+                <dt>Environment</dt>
+                <dd>Chrome 130 · Windows 11 · Demo e-commerce site</dd>
+              </div>
+              <div>
+                <dt>Reproducibility</dt>
+                <dd>Always (5/5 attempts)</dd>
+              </div>
+              <div>
+                <dt>Reported</dt>
+                <dd>Practice project · 2025</dd>
+              </div>
+            </dl>
+
+            <div class="steps">
+              <strong>Steps to Reproduce</strong>
+              <ol>
+                <li>Open the shop homepage in a new private window.</li>
+                <li>Add any product (e.g. “Blue Notebook – ₹100”) to the cart.</li>
+                <li>Go to the Cart page.</li>
+                <li>In the Quantity field, clear the value and type <code>-1</code>, then press Tab or click outside.</li>
+                <li>Observe the order total and item quantity.</li>
+              </ol>
+            </div>
+
+            <div class="result-box">
+              <div class="result expected">
+                <strong>Expected Result</strong>
+                Quantity should not accept values less than 1. System should show a validation message or reset to 1.
+              </div>
+              <div class="result actual">
+                <strong>Actual Result</strong>
+                Quantity becomes -1 and the order total is reduced. User can proceed toward checkout with invalid quantity.
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Bug 2 -->
+        <article class="bug-card">
+          <div class="bug-header">
+            <span class="bug-id">BUG-002</span>
+            <h3 class="bug-title">Login: Error message not shown when wrong password is entered</h3>
+            <span class="severity sev-medium">Medium</span>
+          </div>
+          <div class="bug-body">
+            <dl class="bug-meta">
+              <div>
+                <dt>Environment</dt>
+                <dd>Firefox 131 · macOS · Practice login page</dd>
+              </div>
+              <div>
+                <dt>Reproducibility</dt>
+                <dd>Always</dd>
+              </div>
+              <div>
+                <dt>Reported</dt>
+                <dd>Practice project · 2025</dd>
+              </div>
+            </dl>
+
+            <div class="steps">
+              <strong>Steps to Reproduce</strong>
+              <ol>
+                <li>Navigate to the login page.</li>
+                <li>Enter a valid email address.</li>
+                <li>Enter an incorrect password.</li>
+                <li>Click the “Login” button.</li>
+              </ol>
+            </div>
+
+            <div class="result-box">
+              <div class="result expected">
+                <strong>Expected Result</strong>
+                A clear error message such as “Incorrect email or password” should appear near the form.
+              </div>
+              <div class="result actual">
+                <strong>Actual Result</strong>
+                Page reloads or stays the same with no visible error message. User has no feedback that login failed.
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Bug 3 -->
+        <article class="bug-card">
+          <div class="bug-header">
+            <span class="bug-id">BUG-003</span>
+            <h3 class="bug-title">Search: Special characters cause 500 error instead of empty results</h3>
+            <span class="severity sev-critical">Critical</span>
+          </div>
+          <div class="bug-body">
+            <dl class="bug-meta">
+              <div>
+                <dt>Environment</dt>
+                <dd>Chrome · Android mobile view · Demo search page</dd>
+              </div>
+              <div>
+                <dt>Reproducibility</dt>
+                <dd>Always</dd>
+              </div>
+              <div>
+                <dt>Reported</dt>
+                <dd>Practice project · 2025</dd>
+              </div>
+            </dl>
+
+            <div class="steps">
+              <strong>Steps to Reproduce</strong>
+              <ol>
+                <li>Open the website search bar.</li>
+                <li>Enter the string: <code>%%%''' OR 1=1 --</code></li>
+                <li>Press Enter / click Search.</li>
+              </ol>
+            </div>
+
+            <div class="result-box">
+              <div class="result expected">
+                <strong>Expected Result</strong>
+                Search should return “No results found” or safely handle the input without crashing.
+              </div>
+              <div class="result actual">
+                <strong>Actual Result</strong>
+                Server returns HTTP 500 Internal Server Error. Page shows a generic error screen.
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEST CASES -->
+  <section id="testcases">
+    <div class="container">
+      <h2 class="section-title">Sample <span>Test Cases</span></h2>
+      <p class="section-desc">
+        Structured test cases for login, search & cart. Expand this with your own cases.
+      </p>
+
+      <div class="tc-table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>TC ID</th>
+              <th>Title</th>
+              <th>Preconditions</th>
+              <th>Steps (Summary)</th>
+              <th>Expected Result</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="tc-id">TC-LOGIN-01</td>
+              <td>Valid login with correct credentials</td>
+              <td>User account exists</td>
+              <td>Enter valid email + password → Click Login</td>
+              <td>User is redirected to dashboard / home</td>
+              <td class="status-pass">Pass</td>
+            </tr>
+            <tr>
+              <td class="tc-id">TC-LOGIN-02</td>
+              <td>Login fails with wrong password</td>
+              <td>User account exists</td>
+              <td>Enter valid email + wrong password → Click Login</td>
+              <td>Error message shown; user stays on login page</td>
+              <td class="status-fail">Fail</td>
+            </tr>
+            <tr>
+              <td class="tc-id">TC-LOGIN-03</td>
+              <td>Empty email field validation</td>
+              <td>On login page</td>
+              <td>Leave email blank, enter password → Click Login</td>
+              <td>Validation message: “Email is required”</td>
+              <td class="status-pass">Pass</td>
+            </tr>
+            <tr>
+              <td class="tc-id">TC-SEARCH-01</td>
+              <td>Search returns relevant results</td>
+              <td>Products exist in catalog</td>
+              <td>Type existing product name → Press Enter</td>
+              <td>Matching products are displayed</td>
+              <td class="status-pass">Pass</td>
+            </tr>
+            <tr>
+              <td class="tc-id">TC-SEARCH-02</td>
+              <td>Search with no matching results</td>
+              <td>—</td>
+              <td>Type random string with no matches → Search</td>
+              <td>“No results found” message is shown</td>
+              <td class="status-pass">Pass</td>
+            </tr>
+            <tr>
+              <td class="tc-id">TC-CART-01</td>
+              <td>Add product to cart</td>
+              <td>Product page open</td>
+              <td>Click “Add to Cart”</td>
+              <td>Cart count increases; item appears in cart</td>
+              <td class="status-pass">Pass</td>
+            </tr>
+            <tr>
+              <td class="tc-id">TC-CART-02</td>
+              <td>Quantity cannot be set below 1</td>
+              <td>Item already in cart</td>
+              <td>Try to set quantity to 0 or negative</td>
+              <td>System prevents invalid quantity</td>
+              <td class="status-fail">Fail</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="container">
+      <h2 class="section-title">Practice <span>Projects</span></h2>
+      <p class="section-desc">Testing work done on public / practice applications.</p>
+      <div class="projects-grid">
+        <div class="project-card">
+          <h3>E-commerce Demo Site Testing</h3>
+          <p>
+            End-to-end manual testing of cart, checkout, and search flows. 
+            Wrote 20+ test cases and logged multiple high-severity defects including negative quantity handling.
+          </p>
+          <div class="tags">
+            <span class="tag">Manual Testing</span>
+            <span class="tag">Bug Reporting</span>
+            <span class="tag">Test Cases</span>
+          </div>
+        </div>
+        <div class="project-card">
+          <h3>Login & Authentication Checks</h3>
+          <p>
+            Focused testing of login, validation messages, and edge cases (empty fields, special characters, wrong credentials).
+          </p>
+          <div class="tags">
+            <span class="tag">Functional Testing</span>
+            <span class="tag">Validation</span>
+            <span class="tag">UI Testing</span>
+          </div>
+        </div>
+        <div class="project-card">
+          <h3>Cross-browser & Responsive Checks</h3>
+          <p>
+            Verified key pages on Chrome, Firefox, and mobile viewports. Documented layout and interaction differences.
+          </p>
+          <div class="tags">
+            <span class="tag">Cross-browser</span>
+            <span class="tag">Responsive</span>
+            <span class="tag">Exploratory</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <div class="contact-box">
+        <h2>Let's connect</h2>
+        <p>
+          I'm looking for software testing internships or junior opportunities.<br />
+          Feel free to reach out — I'd love to learn and contribute.
+        </p>
+        <div class="hero-actions">
+          <a href="mailto:your.email@example.com" class="btn btn-primary">Email Me</a>
+          <a href="https://linkedin.com/in/yourprofile" class="btn btn-secondary" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://github.com/yourusername" class="btn btn-ghost" target="_blank" rel="noopener">GitHub</a>
+        </div>
+        <p style="margin-top: 1.6rem; font-size: 0.85rem; color: var(--text-muted);">
+          Replace the email, LinkedIn, and GitHub links with your real ones.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>© 2025 Bhavy Verma · Software Tester Portfolio · Built with care</p>
+    </div>
+  </footer>
+</body>
+</html>
